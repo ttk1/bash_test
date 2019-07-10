@@ -1,20 +1,14 @@
 #!/usr/bin/env bats
+set -eu
+set -o pipefail
 
-function setup() {
-  cd /code
-}
-
-function print() {
-  for line in "$@"; do
-    echo $line
-  done
-}
+load test_helper
 
 @test 'test_hoge' {
-  skip
-  run ./test_hoge.sh
-  print "${lines[@]}"
-  [[ $status -eq 0 ]]
+  source ./hoge.sh
+  declare -i a=0
+  hoge
+  [[ $a -eq 1 ]]
 }
 
 @test 'test_gcd' {

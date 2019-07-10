@@ -6,4 +6,4 @@ cd $(dirname $0)
 docker run -i --rm \
   -v $(pwd):/code \
   bats/bats:latest \
-  /code/test.bats
+  /code
